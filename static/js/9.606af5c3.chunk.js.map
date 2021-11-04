@@ -1,0 +1,1 @@
+{"version":3,"sources":["Pages/LogOutPage.jsx"],"names":["LogoutView"],"mappings":"0MACe,SAASA,IACrB,OACC,kCACE","file":"static/js/9.606af5c3.chunk.js","sourcesContent":["\r\nexport default function LogoutView() {\r\n   return (\r\n    <section>\r\n      <h2>You have logged out of the system</h2>\r\n    </section>\r\n  );\r\n}\r\n"],"sourceRoot":""}
