@@ -2,17 +2,17 @@ import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import * as authSelectors from '../redux/Auth/auth-selectors';
 
-export const PublicRoute = ({
+export default function PublicRoute({
   children,
-  restriced = false,
-  redirectTo = '/',
+  restricted = false,
+  // redirectTo = '/',
   ...routeProps
-}) => {
+}) {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const shouldRedirect = isLoggedIn && restriced;
+  const shouldRedirect = isLoggedIn && restricted;
   return (
     <Route {...routeProps}>
-      {shouldRedirect ? <Redirect to={redirectTo} /> : children}
+      {shouldRedirect ? <Redirect to="/contacts" /> : children}
     </Route>
   );
-};
+}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as authOperation from '../redux/Auth/auth-operation';
 
-export default function RegisterView() {
+export default function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,45 +43,43 @@ export default function RegisterView() {
   };
 
   return (
-    <>
-      <div>
-        <h1>Create your phonebook</h1>
-        <p>Go to the registration form!</p>
+    <div>
+      <h1>Create your phonebook</h1>
+      <p>Go to the registration form!</p>
 
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <label>
-            <span>Name:</span>
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={handleChange}
-            ></input>
-          </label>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <label>
+          <span>Name:</span>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+          ></input>
+        </label>
 
-          <label>
-            <span>Email:</span>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-            ></input>
-          </label>
+        <label>
+          <span>Email:</span>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          ></input>
+        </label>
 
-          <label>
-            <span>Password:</span>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleChange}
-            ></input>
-          </label>
+        <label>
+          <span>Password:</span>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          ></input>
+        </label>
 
-          <button>Register</button>
-        </form>
-      </div>
-    </>
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
 }

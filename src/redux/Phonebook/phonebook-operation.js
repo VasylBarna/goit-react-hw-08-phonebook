@@ -32,7 +32,7 @@ export const contactApi = createApi({
 
     deleteContact: builder.mutation({
       query: id => ({
-        url: `/contacts/${id}`,
+        url: `/contact/${id}`,
         method: 'DELETE',
         body: id,
       }),

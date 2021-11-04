@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as authSelectors from '../../redux/Auth/auth-selectors';
 import * as authOperations from '../../redux/Auth/auth-operation';
 
-export default function AuthNav() {
+export default function UserMenu() {
   const name = useSelector(authSelectors.getUserName);
   const email = useSelector(authSelectors.getUserEmail);
 

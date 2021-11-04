@@ -1,4 +1,4 @@
-export default function HomeView() {
+export default function HomePage() {
   return (
     <div>
       <h2>The application is designed to store and edit contacts</h2>

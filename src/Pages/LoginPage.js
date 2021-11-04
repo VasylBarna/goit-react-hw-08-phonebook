@@ -37,34 +37,32 @@ export default function LoginPage() {
   };
 
   return (
-    <>
-      <div>
-        <h1>Log in and start working!</h1>
+    <div>
+      <h1>Log in and start working!</h1>
 
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <label>
-            <span>Email:</span>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleChange}
-            ></input>
-          </label>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <label>
+          <span>Email:</span>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          ></input>
+        </label>
 
-          <label>
-            <span>Password:</span>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={handleChange}
-            ></input>
-          </label>
+        <label>
+          <span>Password:</span>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          ></input>
+        </label>
 
-          <button>Login</button>
-        </form>
-      </div>
-    </>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 }

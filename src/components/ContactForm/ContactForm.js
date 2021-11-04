@@ -8,7 +8,7 @@ import Loader from 'react-loader-spinner';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const [addContact, { isLoading }] = useAddContactMutation();
   const { data: contacts } = useFetchContactsQuery();
 
@@ -20,8 +20,8 @@ export default function ContactForm() {
         setName(value);
         break;
 
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
 
       default:
@@ -32,7 +32,7 @@ export default function ContactForm() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const nameOptions = { name, phone };
+    const nameOptions = { name, number };
 
     if (
       contacts.find(
@@ -48,7 +48,7 @@ export default function ContactForm() {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -70,7 +70,7 @@ export default function ContactForm() {
         <input
           type="tel"
           name="phone"
-          value={phone}
+          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           onChange={handleInputChange}

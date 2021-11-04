@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import {
   persistReducer,
   persistStore,
@@ -21,7 +20,7 @@ const middleware = getDefaultMiddleware => [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  // contactApi.middleware,
+  contactApi.middleware,
 ];
 
 const authPersistConfig = {
@@ -40,8 +39,4 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
-// setupListeners(store.dispatch);
-
 export const persistor = persistStore(store);
-
-// export { store, persistor };

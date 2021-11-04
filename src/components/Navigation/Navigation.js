@@ -14,11 +14,7 @@ const Navigation = () => {
       {/* <NavLink exact to="/">
         Home
       </NavLink> */}
-      {isLoggedIn && (
-        <NavLink exact to="/contacts">
-          Contacts
-        </NavLink>
-      )}
+      {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
     </nav>
   );
 };

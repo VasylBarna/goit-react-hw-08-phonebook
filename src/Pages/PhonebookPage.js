@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useFetchContactsQuery } from '../redux/Phonebook/phonebook-operation';
 import * as authSelectors from '../redux/Auth/auth-selectors';
-import ContactsForm from '../components/ContactForm';
+import ContactForm from '../components/ContactForm';
 import ContactsList from '../components/ContactsList';
 import Filter from '../components/Filter';
 
-export default function PhonebookView() {
+export default function PhonebookPage() {
   const [contacts, setContacts] = useState([]);
 
   const { data, isFetching } = useFetchContactsQuery();
@@ -37,9 +37,8 @@ export default function PhonebookView() {
       {isLoggedIn ? (
         <div>
           <section>
-            <ContactsForm />
+            <ContactForm />
           </section>
-
           <section>
             <h2>Contacts</h2>
             <Filter filter={handleFilterContacts} />
@@ -52,5 +51,12 @@ export default function PhonebookView() {
         </div>
       )}
     </>
+    // <>
+    //   <h1>Phonebook</h1>
+    //   <ContactForm />
+    //   <h2>Contacts</h2>
+    //   <Filter filter={handleFilterContacts} />
+    //   <ContactsList contacts={contacts} isFetching={isFetching} />
+    // </>
   );
 }

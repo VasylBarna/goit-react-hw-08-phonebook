@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { handleFilter } from '../../redux/Phonebook/phonebook-actions';
+import changeFilter from '../../redux/Phonebook/phonebook-actions';
 import styles from './Filter.module.scss';
 
 export default function Filter() {
@@ -10,7 +10,7 @@ export default function Filter() {
       Find contacts by name
       <input
         type="text"
-        onChange={event => dispatch(handleFilter(event.target.value))}
+        onChange={event => dispatch(changeFilter(event.target.value))}
       />
     </label>
   );
