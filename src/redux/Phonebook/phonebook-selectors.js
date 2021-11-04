@@ -1,6 +1,6 @@
-export const getContacts = (data, state) => {
-  const getFilter = state.filter;
-  const normalizedFilter = getFilter.toLowerCase();
+export const getListContact = (data, state) => {
+  const getfilter = state.filter;
+  const normalizedFilter = getfilter.toLowerCase();
 
   return data
     ? data.filter(contact =>

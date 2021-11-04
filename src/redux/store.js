@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
-  persistReducer,
   persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,18 +10,9 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import authReducer from './Auth/auth-slice';
-import { contactApi } from './Phonebook/phonebook-operation';
+import { authReducer } from './Auth';
+import { phonebookApi } from './Phonebook/phonebook-operation';
 import { filter } from './Phonebook/phonebook-reducer';
-
-const middleware = getDefaultMiddleware => [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-  contactApi.middleware,
-];
 
 const authPersistConfig = {
   key: 'auth',
@@ -32,10 +23,15 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    [contactApi.reducerPath]: contactApi.reducer,
+    [phonebookApi.reducerPath]: phonebookApi.reducer,
     filter,
   },
-  middleware,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(phonebookApi.middleware),
   devTools: process.env.NODE_ENV === 'development',
 });
 

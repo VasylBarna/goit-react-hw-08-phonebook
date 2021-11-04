@@ -1,6 +1,6 @@
-// eslint-disable-next-line import/no-anonymous-default-export
+/* eslint-disable import/no-anonymous-default-export */
 export default {
-  ADD: 'contacts/add',
-  DELETE: 'contacts/delete',
+  ADD: 'phonebook/add',
+  DELETE: 'phonebook/delete',
   FILTER: 'filter',
 };

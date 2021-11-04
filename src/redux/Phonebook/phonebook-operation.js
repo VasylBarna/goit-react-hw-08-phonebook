@@ -1,25 +1,23 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-export const contactApi = createApi({
-  reducerPath: 'contactApi',
+export const phonebookApi = createApi({
+  reducerPath: 'phonebookApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
-        headers.set('autorization', `Bearer ${token}`);
+        headers.set('authorization', `Bearer ${token}`);
       }
       return headers;
     },
   }),
-
-  tagTypes: ['Contact'],
+  tagTypes: ['Phonebook'],
   endpoints: builder => ({
-    fetchContacts: builder.query({
+    getContacts: builder.query({
       query: () => '/contacts',
-      providesTags: ['Contact'],
-    }),
 
+      providesTags: ['Phonebook'],
+    }),
     addContact: builder.mutation({
       query: (name, number) => ({
         url: '/contacts',
@@ -27,22 +25,21 @@ export const contactApi = createApi({
         body: name,
         number,
       }),
-      invalidatesTags: ['Contact'],
+      invalidatesTags: ['Phonebook'],
     }),
-
     deleteContact: builder.mutation({
       query: id => ({
-        url: `/contact/${id}`,
+        url: `/contacts/${id}`,
         method: 'DELETE',
         body: id,
       }),
-      invalidatesTags: ['Contact'],
+      invalidatesTags: ['Phonebook'],
     }),
   }),
 });
 
 export const {
-  useFetchContactsQuery,
+  useGetContactsQuery,
   useAddContactMutation,
   useDeleteContactMutation,
-} = contactApi;
+} = phonebookApi;
